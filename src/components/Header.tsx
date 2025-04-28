@@ -1,41 +1,50 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'About', href: '/about' },
-    { name: 'Changemakers Lab', href: '/changemakers-lab' },
-    { name: 'Empowerment Lab', href: '/empowerment-lab' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'About', href: '#about' },
+    { name: 'Changemakers Lab', href: '#changemakers-lab' },
+    { name: 'Empowerment Lab', href: '#empowerment-lab' },
+    { name: 'Contact', href: '#contact' },
   ];
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
+            <a href="#" className="flex items-center">
               <img
                 src="https://placehold.co/200x50/2563eb/ffffff?text=Code+It+Forward"
                 alt="Code It Forward Logo"
                 className="h-8 w-auto"
               />
-            </Link>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.name}
-                to={link.href}
+                href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
                 {link.name}
-              </Link>
+              </a>
             ))}
           </nav>
 
@@ -76,14 +85,14 @@ const Header = () => {
       <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
-              to={link.href}
+              href={link.href}
+              onClick={(e) => scrollToSection(e, link.href)}
               className="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
             >
               {link.name}
-            </Link>
+            </a>
           ))}
         </div>
       </div>
