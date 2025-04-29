@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import Section from '../layout/Section';
 import Grid from '../layout/Grid';
-import { Card, CardContent, CardTitle, CardDescription, CardFooter } from '../layout/Card';
+import { Card, CardContent, CardTitle, CardDescription } from '../layout/Card';
 import { Button } from '../ui/button';
 
 // Import the Cols type from Grid or redefine it here
