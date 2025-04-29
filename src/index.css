@@ -8,4 +8,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  
+  /* Hide content from top area of the page */
+  body::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    z-index: 9999;
+    pointer-events: none;
+  }
 }
