@@ -2,7 +2,8 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import Section from '../layout/Section';
 import Grid from '../layout/Grid';
-import { Card, CardContent, CardTitle, CardDescription } from '../layout/Card';
+import { Card, CardContent, CardTitle, CardDescription, CardFooter } from '../layout/Card';
+import { Button } from '../ui/button';
 
 // Import the Cols type from Grid or redefine it here
 type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
@@ -18,6 +19,8 @@ interface Feature {
   title: string;
   description: string;
   icon?: React.ReactNode;
+  ctaText?: string;
+  ctaHref?: string;
 }
 
 interface FeatureGridProps {
@@ -92,8 +95,8 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
 
   // Determine card background class
   const cardBgClass = cardBackground === 'white' ? 
-    "bg-white/90" : 
-    (isDarkBg ? "bg-dark-800/50" : "bg-white/90");
+    "bg-white" : 
+    (isDarkBg ? "bg-charcoal-800/50" : "bg-white");
 
   return (
     <Section
@@ -136,9 +139,19 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
                 <CardTitle className={cn("mb-2", cardBackground === 'white' ? "text-neutral-800" : (isDarkBg ? "text-white" : "text-neutral-800"))}>
                   {feature.title}
                 </CardTitle>
-                <CardDescription className={cn("text-base flex-grow", cardBackground === 'white' ? "text-neutral-600" : (isDarkBg ? "text-neutral-200" : "text-neutral-600"))}>
+                <CardDescription className={cn("text-base flex-grow mb-6", cardBackground === 'white' ? "text-neutral-600" : (isDarkBg ? "text-neutral-200" : "text-neutral-600"))}>
                   {feature.description}
                 </CardDescription>
+
+                <Button 
+                  variant={isDarkBg && cardBackground !== 'white' ? "outline" : "default"}
+                  className="w-full mt-auto hover:bg-primary-600 transition-colors"
+                  asChild
+                >
+                  <a href={feature.ctaHref || '#'}>
+                    {feature.ctaText || 'Learn More'}
+                  </a>
+                </Button>
               </CardContent>
             </Card>
           ))}

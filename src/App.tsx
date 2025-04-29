@@ -12,17 +12,23 @@ function App() {
     {
       title: 'Creative Coders',
       description: 'Our flagship program teaching young students how to express themselves through code. Build games, animations, and interactive stories while learning core programming concepts.',
-      icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">CC</div>
+      icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">CC</div>,
+      ctaText: 'Start Coding',
+      ctaHref: '/creative-coders'
     },
     {
       title: 'Changemakers Lab',
       description: 'An immersive program where students work on real-world projects that address community challenges. Develop technical skills while making a positive social impact.',
-      icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">CL</div>
+      icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">CL</div>,
+      ctaText: 'Join the Lab',
+      ctaHref: '/changemakers-lab'
     },
     {
       title: 'AI for Good',
       description: 'Learn about artificial intelligence and how it can be used to solve important problems. Explore machine learning, natural language processing, and responsible AI development.',
-      icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">AI</div>
+      icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">AI</div>,
+      ctaText: 'Explore AI',
+      ctaHref: '/ai-for-good'
     }
   ];
 
@@ -31,17 +37,23 @@ function App() {
     {
       title: 'AI Strategy Consulting',
       description: 'We help small businesses develop tailored AI strategies to enhance operations and customer experiences. Our consultations identify the most impactful opportunities for AI integration.',
-      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">AS</div>
+      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">AS</div>,
+      ctaText: 'Get Started',
+      ctaHref: '/ai-strategy'
     },
     {
       title: 'Custom AI Solutions',
       description: 'Our team develops customized AI tools and applications for small businesses, designed to address specific challenges and opportunities in your business.',
-      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">CS</div>
+      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">CS</div>,
+      ctaText: 'Build Solutions',
+      ctaHref: '/custom-solutions'
     },
     {
       title: 'AI Education & Training',
       description: 'We provide workshops and training programs to help your team understand AI concepts and applications relevant to your business needs.',
-      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">ET</div>
+      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">ET</div>,
+      ctaText: 'Learn More',
+      ctaHref: '/education-training'
     }
   ];
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import Container from './Container';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 
 interface HeaderProps {
   className?: string;
@@ -80,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
               </a>
             ))}
             
-            <Button variant="charcoal" size="sm">Get Started</Button>
+            <Button variant="default" size="sm">Get Started</Button>
           </nav>
           
           {/* Mobile Menu Button */}
@@ -134,7 +134,7 @@ export const Header: React.FC<HeaderProps> = ({
                 {item.label}
               </a>
             ))}
-            <Button variant="charcoal" fullWidth>Get Started</Button>
+            <Button variant="default" className="w-full">Get Started</Button>
           </nav>
         </Container>
       </div>

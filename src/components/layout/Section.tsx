@@ -18,6 +18,7 @@ interface SectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  style?: React.CSSProperties;
   background?: BackgroundType;
   containerSize?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
   containerClass?: string;
@@ -29,6 +30,7 @@ export const Section: React.FC<SectionProps> = ({
   children,
   className,
   id,
+  style,
   background = 'light',
   containerSize = 'xl',
   containerClass,
@@ -73,6 +75,7 @@ export const Section: React.FC<SectionProps> = ({
         spacingClasses[spacing],
         className
       )}
+      style={style}
       {...props}
     >
       {sectionContent}

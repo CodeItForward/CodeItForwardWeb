@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Section from '../layout/Section';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 
 interface ContactSectionProps {
   id?: string;
