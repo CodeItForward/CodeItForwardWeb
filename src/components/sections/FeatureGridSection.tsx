@@ -4,6 +4,16 @@ import Section from '../layout/Section';
 import Grid from '../layout/Grid';
 import { Card, CardContent, CardTitle, CardDescription } from '../layout/Card';
 
+// Import the Cols type from Grid or redefine it here
+type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type ColsResponsive = {
+  sm?: Cols;
+  md?: Cols;
+  lg?: Cols;
+  xl?: Cols;
+  '2xl'?: Cols;
+};
+
 interface Feature {
   title: string;
   description: string;
@@ -42,18 +52,30 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
   ...props
 }) => {
   // Responsive columns configuration based on the selected column count
-  const getResponsiveColumns = (cols: number) => {
+  const getResponsiveColumns = (cols: number): Cols | ColsResponsive => {
     switch(cols) {
       case 1: 
-        return 1;
+        return 1 as Cols;
       case 2:
-        return { sm: 1, md: 2, lg: 2 };
+        return {
+          sm: 1 as Cols,
+          md: 2 as Cols,
+          lg: 2 as Cols
+        };
       case 3:
-        return { sm: 1, md: 2, lg: 3 };
+        return {
+          sm: 1 as Cols,
+          md: 2 as Cols,
+          lg: 3 as Cols
+        };
       case 4:
-        return { sm: 1, md: 2, lg: 4 };
+        return {
+          sm: 1 as Cols,
+          md: 2 as Cols,
+          lg: 4 as Cols
+        };
       default:
-        return 3;
+        return 3 as Cols;
     }
   };
 

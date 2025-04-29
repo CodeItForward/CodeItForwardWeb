@@ -1,5 +1,4 @@
 import './index.css';
-import React from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
@@ -32,17 +31,17 @@ function App() {
     {
       title: 'AI Strategy Consulting',
       description: 'We help small businesses develop tailored AI strategies to enhance operations and customer experiences. Our consultations identify the most impactful opportunities for AI integration.',
-      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">AS</div>
+      icon: <div className="w-12 h-12 bg-white text-charcoal-700 rounded-lg flex items-center justify-center">AS</div>
     },
     {
       title: 'Custom AI Solutions',
       description: 'Our team develops customized AI tools and applications for small businesses, designed to address specific challenges and opportunities in your business.',
-      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">CS</div>
+      icon: <div className="w-12 h-12 bg-white text-charcoal-700 rounded-lg flex items-center justify-center">CS</div>
     },
     {
       title: 'AI Education & Training',
       description: 'We provide workshops and training programs to help your team understand AI concepts and applications relevant to your business needs.',
-      icon: <div className="w-12 h-12 bg-charcoal-700 text-white rounded-lg flex items-center justify-center">ET</div>
+      icon: <div className="w-12 h-12 bg-white text-charcoal-700 rounded-lg flex items-center justify-center">ET</div>
     }
   ];
 
