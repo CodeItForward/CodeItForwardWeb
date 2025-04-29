@@ -3,12 +3,13 @@ import { cn } from '@/lib/utils';
 import Section from '../layout/Section';
 
 interface TextSectionProps {
+  id?: string;
   title: string;
   subtitle?: string;
   content: string | React.ReactNode;
   className?: string;
   titleClassName?: string;
-  background?: 'primary-gradient' | 'secondary-gradient' | 'accent-gradient' | 'primary-light' | 'secondary-light' | 'accent-light' | 'dark' | 'light' | 'transparent';
+  background?: 'primary-gradient' | 'secondary-gradient' | 'accent-gradient' | 'primary-light' | 'secondary-light' | 'accent-light' | 'dark' | 'light' | 'transparent' | 'charcoal';
 }
 
 export const TextSection: React.FC<TextSectionProps> = ({

@@ -11,7 +11,8 @@ type BackgroundType =
   | 'accent-light'
   | 'dark'
   | 'light'
-  | 'transparent';
+  | 'transparent'
+  | 'charcoal';
 
 interface SectionProps {
   children: React.ReactNode;
@@ -45,6 +46,7 @@ export const Section: React.FC<SectionProps> = ({
     'dark': 'bg-dark-800 text-white',
     'light': 'bg-white text-neutral-800',
     'transparent': 'bg-transparent',
+    'charcoal': 'bg-charcoal text-white',
   };
 
   const spacingClasses: Record<NonNullable<SectionProps['spacing']>, string> = {

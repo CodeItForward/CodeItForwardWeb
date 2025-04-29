@@ -3,10 +3,11 @@ import Section from '../layout/Section';
 import { Button } from '../ui/Button';
 
 interface ContactSectionProps {
+  id?: string;
   title: string;
   subtitle?: string;
   className?: string;
-  background?: 'primary-gradient' | 'secondary-gradient' | 'accent-gradient' | 'primary-light' | 'secondary-light' | 'accent-light' | 'dark' | 'light' | 'transparent';
+  background?: 'primary-gradient' | 'secondary-gradient' | 'accent-gradient' | 'primary-light' | 'secondary-light' | 'accent-light' | 'dark' | 'light' | 'transparent' | 'charcoal';
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({

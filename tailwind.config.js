@@ -14,6 +14,7 @@ export default {
     'bg-secondary-100',
     'text-neutral-800',
     'text-white',
+    'bg-charcoal',
   ],
   theme: {
     extend: {
@@ -34,16 +35,29 @@ export default {
           foreground: 'hsl(var(--popover-foreground))',
         },
         primary: {
-          50: '#f0f7ff',  // Light blue background
-          100: '#e0efff',
+          50: '#eef7ff',  // Lighter, more vibrant blue background
+          100: '#d1e9ff',
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          50: '#f0faf9',  // Light teal background
-          100: '#dcf5f0',
+          50: '#ecfdf5',  // More distinct mint/teal background
+          100: '#d1fae5',
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+        },
+        charcoal: {
+          DEFAULT: '#2d3748', // Dark charcoal
+          50: '#f7fafc',
+          100: '#edf2f7',
+          200: '#e2e8f0',
+          300: '#cbd5e0',
+          400: '#a0aec0',
+          500: '#718096',
+          600: '#4a5568',
+          700: '#2d3748', // Same as DEFAULT
+          800: '#1a202c',
+          900: '#171923',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',

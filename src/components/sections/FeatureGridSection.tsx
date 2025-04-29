@@ -11,6 +11,7 @@ interface Feature {
 }
 
 interface FeatureGridProps {
+  id?: string;
   title: string;
   subtitle?: string;
   features: Feature[];
@@ -26,7 +27,8 @@ interface FeatureGridProps {
     | 'accent-light'
     | 'dark'
     | 'light'
-    | 'transparent';
+    | 'transparent'
+    | 'charcoal';
 }
 
 export const FeatureGridSection: React.FC<FeatureGridProps> = ({
@@ -39,16 +41,30 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
   background = 'light',
   ...props
 }) => {
-  // Responsive columns configuration
-  const responsiveColumns = {
-    1: { sm: 1, md: 1, lg: 1 },
-    2: { sm: 1, md: 2, lg: 2 },
-    3: { sm: 1, md: 2, lg: 3 },
-    4: { sm: 1, md: 2, lg: 4 },
+  // Responsive columns configuration based on the selected column count
+  const getResponsiveColumns = (cols: number) => {
+    switch(cols) {
+      case 1: 
+        return 1;
+      case 2:
+        return { sm: 1, md: 2, lg: 2 };
+      case 3:
+        return { sm: 1, md: 2, lg: 3 };
+      case 4:
+        return { sm: 1, md: 2, lg: 4 };
+      default:
+        return 3;
+    }
   };
 
-  // Determine if we should show decorative gradients
-  const showGradients = background === 'primary-gradient' || background === 'secondary-gradient' || background === 'accent-gradient';
+  // Determine text color based on background
+  const isDarkBg = background === 'dark' || 
+                  background === 'primary-gradient' || 
+                  background === 'secondary-gradient' || 
+                  background === 'accent-gradient' ||
+                  background === 'charcoal';
+
+  const textColorClass = isDarkBg ? 'text-white' : 'text-neutral-800';
 
   return (
     <Section
@@ -57,48 +73,41 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
       spacing="xl"
       {...props}
     >
-      {/* Optional background decoration */}
-      {showGradients && (
-        <div className="absolute inset-0 opacity-30 pointer-events-none">
-          <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-primary-100 to-transparent" />
-          <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-secondary-100 to-transparent" />
-        </div>
-      )}
-
-      {/* Content */}
-      
-    <div className="bg-red-500 text-white p-4">Tailwind is working</div>
       <div className="relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading animate-fade-in">
+          <h2 className={cn("text-3xl md:text-4xl font-bold mb-4 font-heading animate-fade-in", textColorClass)}>
             {title}
           </h2>
 
           {subtitle && (
-            <p className="text-xl max-w-3xl mx-auto opacity-80 animate-slide-up">
+            <p className={cn("text-xl max-w-3xl mx-auto opacity-80 animate-slide-up", textColorClass)}>
               {subtitle}
             </p>
           )}
         </div>
 
-        <Grid cols={responsiveColumns[columns]} gap="lg">
+        <Grid cols={getResponsiveColumns(columns)} gap="lg">
           {features.map((feature, index) => (
             <Card
               key={index}
               variant={cardVariant}
               hover={true}
-              className="animate-slide-up backdrop-blur-sm bg-white/90"
-              style={{ animationDelay: `${0.1 * index}s` }}
+              className={cn(
+                "animate-slide-up backdrop-blur-sm",
+                isDarkBg ? "bg-dark-800/50" : "bg-white/90"
+              )}
             >
-              <CardContent className="p-6 flex flex-col h-full">
+              <CardContent className="p-6 flex flex-col h-full" style={{ animationDelay: `${0.1 * index}s` }}>
                 {feature.icon && (
-                  <div className="mb-4 text-primary-500">
+                  <div className="mb-4">
                     {feature.icon}
                   </div>
                 )}
 
-                <CardTitle className="mb-2">{feature.title}</CardTitle>
-                <CardDescription className="text-base flex-grow">
+                <CardTitle className={cn("mb-2", isDarkBg ? "text-white" : "text-neutral-800")}>
+                  {feature.title}
+                </CardTitle>
+                <CardDescription className={cn("text-base flex-grow", isDarkBg ? "text-neutral-200" : "text-neutral-600")}>
                   {feature.description}
                 </CardDescription>
               </CardContent>
