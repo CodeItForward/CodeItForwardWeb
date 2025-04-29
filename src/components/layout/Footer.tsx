@@ -33,9 +33,9 @@ export const Footer: React.FC<FooterProps> = ({
       {...props}
     >
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Logo and Mission */}
-          <div className="lg:col-span-1">
+          <div>
             <div className="font-heading font-bold text-2xl mb-4">
               {logo || 'Code It Forward'}
             </div>
@@ -48,24 +48,8 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4 font-heading">Quick Links</h3>
-            <nav className="flex flex-col space-y-2">
-              {navItems.slice(0, 4).map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-neutral-400 hover:text-white transition"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-          
-          {/* Legal */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 font-heading">Legal</h3>
-            <nav className="flex flex-col space-y-2">
-              {navItems.slice(4).map((item) => (
+            <nav className="grid grid-cols-2 gap-2">
+              {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
