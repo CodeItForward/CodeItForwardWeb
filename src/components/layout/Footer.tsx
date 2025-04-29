@@ -24,26 +24,18 @@ export const Footer: React.FC<FooterProps> = ({
     { label: 'Terms of Service', href: '#terms-of-service' },
   ];
   
-  // Social media links
-  const socialLinks = [
-    { label: 'Twitter', href: 'https://twitter.com' },
-    { label: 'Instagram', href: 'https://instagram.com' },
-    { label: 'LinkedIn', href: 'https://linkedin.com' },
-    { label: 'GitHub', href: 'https://github.com' },
-  ];
-  
   return (
     <footer
       className={cn(
-        'bg-dark-800 text-white pt-16 pb-8',
+        'bg-charcoal text-white pt-16 pb-8',
         className
       )}
       {...props}
     >
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {/* Logo and Mission */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <div className="font-heading font-bold text-2xl mb-4">
               {logo || 'Code It Forward'}
             </div>
@@ -51,19 +43,6 @@ export const Footer: React.FC<FooterProps> = ({
               Empowering young minds through coding and AI education to build a 
               brighter, more equitable future.
             </p>
-            <div className="flex space-x-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-neutral-400 hover:text-white transition"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
           </div>
           
           {/* Quick Links */}
@@ -99,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
         
-        <div className="border-t border-neutral-700 mt-12 pt-8 text-center text-neutral-400 text-sm">
+        <div className="border-t border-charcoal-600 mt-12 pt-8 text-center text-neutral-400 text-sm">
           <p>© {currentYear} Code It Forward. All rights reserved.</p>
         </div>
       </Container>

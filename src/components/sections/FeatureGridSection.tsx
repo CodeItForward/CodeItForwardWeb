@@ -28,6 +28,7 @@ interface FeatureGridProps {
   className?: string;
   columns?: 1 | 2 | 3 | 4;
   cardVariant?: 'default' | 'elevated' | 'outlined' | 'filled';
+  cardBackground?: 'default' | 'white';
   background?: 
     | 'primary-gradient'
     | 'secondary-gradient'
@@ -48,6 +49,7 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
   className,
   columns = 3,
   cardVariant = 'default',
+  cardBackground = 'default',
   background = 'light',
   ...props
 }) => {
@@ -88,6 +90,11 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
 
   const textColorClass = isDarkBg ? 'text-white' : 'text-neutral-800';
 
+  // Determine card background class
+  const cardBgClass = cardBackground === 'white' ? 
+    "bg-white/90" : 
+    (isDarkBg ? "bg-dark-800/50" : "bg-white/90");
+
   return (
     <Section
       background={background}
@@ -116,7 +123,7 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
               hover={true}
               className={cn(
                 "animate-slide-up backdrop-blur-sm",
-                isDarkBg ? "bg-dark-800/50" : "bg-white/90"
+                cardBgClass
               )}
             >
               <CardContent className="p-6 flex flex-col h-full" style={{ animationDelay: `${0.1 * index}s` }}>
@@ -126,10 +133,10 @@ export const FeatureGridSection: React.FC<FeatureGridProps> = ({
                   </div>
                 )}
 
-                <CardTitle className={cn("mb-2", isDarkBg ? "text-white" : "text-neutral-800")}>
+                <CardTitle className={cn("mb-2", cardBackground === 'white' ? "text-neutral-800" : (isDarkBg ? "text-white" : "text-neutral-800"))}>
                   {feature.title}
                 </CardTitle>
-                <CardDescription className={cn("text-base flex-grow", isDarkBg ? "text-neutral-200" : "text-neutral-600")}>
+                <CardDescription className={cn("text-base flex-grow", cardBackground === 'white' ? "text-neutral-600" : (isDarkBg ? "text-neutral-200" : "text-neutral-600"))}>
                   {feature.description}
                 </CardDescription>
               </CardContent>
