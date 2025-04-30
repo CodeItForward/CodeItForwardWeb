@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import Container from './Container';
 import { Button } from '../ui/button';
+import { Link } from 'react-router-dom';
+import logoSrc from '@/assets/logo.png';
 
 interface HeaderProps {
   className?: string;
@@ -21,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
   // Track scroll position to change header appearance
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 0);
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -32,17 +34,17 @@ export const Header: React.FC<HeaderProps> = ({
   const navItems = [
     { label: 'About', href: '#about' },
     { label: 'Changemakers Lab', href: '#changemakers-lab' },
-    { label: 'Empowerment Lab', href: '#empowerment-lab' },
+    { label: 'Empowerment Studio', href: '#empowerment-studio' },
     { label: 'Contact', href: '#contact' },
   ];
   
   // Header styling based on scroll position and transparency setting
   const headerBg = !transparent || isScrolled
-    ? 'bg-white shadow-sm'
+    ? 'bg-charcoal'
     : 'bg-transparent';
     
   const textColor = !transparent || isScrolled
-    ? 'text-neutral-800'
+    ? 'text-white'
     : 'text-white';
     
   const transition = 'transition-all duration-300 ease-in-out';
@@ -61,7 +63,9 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className={cn('font-heading font-bold text-2xl', textColor, transition)}>
-            {logo || 'Code It Forward'}
+            <Link to="/" className="flex items-center">
+              <img src={logoSrc} alt="Code It Forward" className="h-[120px]" />
+            </Link>
           </div>
           
           {/* Desktop Navigation */}

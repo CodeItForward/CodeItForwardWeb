@@ -1,6 +1,7 @@
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ClassDetailSection from '@/components/sections/ClassDetailSection';
+import CreativeCodersSrc from '@/assets/Creative-Coders.png';
 
 const CreativeCoders = () => {
   return (
@@ -8,7 +9,16 @@ const CreativeCoders = () => {
       <Header />
       <main className="flex-grow">
         <ClassDetailSection
-          title="Creative Coders"
+          title={
+            <div className="flex justify-center">
+              <img 
+                src={CreativeCodersSrc} 
+                alt="Creative Coders" 
+                className="h-24"
+              />
+              <span className="sr-only">Creative Coders</span>
+            </div>
+          }
           description="Unleash your creativity through code! In this engaging program, students learn fundamental programming concepts while building their own interactive games, animations, and digital stories. Using beginner-friendly tools and languages, participants will develop both technical skills and creative problem-solving abilities."
           learningPoints={[
             "Basic programming concepts using Python and Scratch",

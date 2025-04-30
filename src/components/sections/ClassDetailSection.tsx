@@ -6,7 +6,7 @@ import { Card, CardContent } from '../layout/Card';
 
 interface ClassDetailProps {
   id?: string;
-  title: string;
+  title: string | React.ReactNode;
   description: string;
   learningPoints: string[];
   imageUrl: string;
@@ -79,7 +79,7 @@ export const ClassDetailSection: React.FC<ClassDetailProps> = ({
               <div className="relative aspect-video rounded-lg overflow-hidden">
                 <img
                   src={imageUrl}
-                  alt={title}
+                  alt={title as string}
                   className="object-cover w-full h-full"
                 />
               </div>

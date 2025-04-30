@@ -5,6 +5,8 @@ import HeroSection from '@/components/sections/HeroSection';
 import TextSection from '@/components/sections/TextSection';
 import FeatureGridSection from '@/components/sections/FeatureGridSection';
 import ContactSection from '@/components/sections/ContactSection';
+import ChangemakersLabSrc from '@/assets/ChangemakersLab.png';
+import EmpowermentStudioSrc from '@/assets/EmpowermentStudio.png';
 
 function App() {
   // Sample feature data for Changemakers Lab
@@ -83,17 +85,37 @@ function App() {
         {/* Changemakers Lab Section */}
         <FeatureGridSection
           id="changemakers-lab"
-          title="Changemakers Lab"
+          title={
+            <div className="flex justify-center mb-4">
+              <div className="bg-charcoal px-6 py-3 rounded-lg">
+                <img 
+                  src={ChangemakersLabSrc} 
+                  alt="Changemakers Lab" 
+                  className="h-24"
+                />
+                <span className="sr-only">Changemakers Lab</span>
+              </div>
+            </div>
+          }
           subtitle="Inspiring the next generation of tech innovators through hands-on learning"
           features={changemakersFeatures}
           background="primary-light"
           columns={3}
         />
 
-        {/* Empowerment Lab Section */}
+        {/* Empowerment Studio Section */}
         <FeatureGridSection
-          id="empowerment-lab"
-          title="Empowerment Lab"
+          id="empowerment-studio"
+          title={
+            <div className="flex justify-center mb-4">
+              <img 
+                src={EmpowermentStudioSrc} 
+                alt="Empowerment Studio" 
+                className="h-24"
+              />
+              <span className="sr-only">Empowerment Studio</span>
+            </div>
+          }
           subtitle="Transforming small businesses with practical AI solutions"
           features={empowermentFeatures}
           background="charcoal"

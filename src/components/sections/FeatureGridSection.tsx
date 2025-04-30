@@ -25,7 +25,7 @@ interface Feature {
 
 interface FeatureGridProps {
   id?: string;
-  title: string;
+  title: string | React.ReactNode;
   subtitle?: string;
   features: Feature[];
   className?: string;
