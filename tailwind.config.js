@@ -35,7 +35,7 @@ export default {
           foreground: 'hsl(var(--popover-foreground))',
         },
         primary: {
-          50: '#eef7ff',  // Lighter, more vibrant blue background
+          50: '#daeffa',  // Lighter, more vibrant blue background
           100: '#d1e9ff',
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',

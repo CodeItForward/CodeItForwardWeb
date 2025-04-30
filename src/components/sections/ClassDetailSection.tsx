@@ -38,15 +38,12 @@ export const ClassDetailSection: React.FC<ClassDetailProps> = ({
       {/* Hero Banner */}
       <Section
         background="primary-gradient"
-        spacing="lg"
-        className="min-h-[40vh] flex items-center"
+        className="flex items-center p-0 h-[300px]"
         {...props}
       >
-        <Container>
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-white animate-fade-in">
-              {title}
-            </h1>
+        <Container className="p-0 h-full w-full">
+          <div className="flex items-center justify-center h-full w-full">
+            {title}
           </div>
         </Container>
       </Section>

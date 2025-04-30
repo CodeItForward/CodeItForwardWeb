@@ -39,7 +39,7 @@ export const Section: React.FC<SectionProps> = ({
   ...props
 }) => {
   const backgroundClasses: Record<BackgroundType, string> = {
-    'primary-gradient': 'bg-gradient-to-br from-primary-400 to-primary-600 text-white',
+    'primary-gradient': 'bg-[#daeffa] text-neutral-800',
     'secondary-gradient': 'bg-gradient-to-br from-secondary-400 to-secondary-600 text-white',
     'accent-gradient': 'bg-gradient-to-br from-accent-400 to-accent-600 text-white',
     'primary-light': 'bg-primary-50 text-neutral-800',

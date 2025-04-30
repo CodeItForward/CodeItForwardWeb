@@ -2,19 +2,20 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ClassDetailSection from '@/components/sections/ClassDetailSection';
 import CreativeCodersSrc from '@/assets/Creative-Coders.png';
+import HappyCodingSrc from '@/assets/happy-coding.png';
 
 const CreativeCoders = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow pt-20">
         <ClassDetailSection
           title={
-            <div className="flex justify-center">
+            <div className="h-full w-full flex items-center justify-center">
               <img 
                 src={CreativeCodersSrc} 
                 alt="Creative Coders" 
-                className="h-24"
+                className="h-[300px] w-auto object-contain"
               />
               <span className="sr-only">Creative Coders</span>
             </div>
@@ -28,7 +29,7 @@ const CreativeCoders = () => {
             "Problem-solving and computational thinking",
             "Project planning and development",
           ]}
-          imageUrl="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg"
+          imageUrl={HappyCodingSrc}
           ageRange="11-14 years old"
           sessionDates="June 15 - August 15, 2024"
           cost="$499"
