@@ -37,7 +37,7 @@ const CreativeCoders = () => {
             "Project planning and development",
           ]}
           imageUrl={HappyCodingSrc}
-          ageRange="11-14 years old"
+          ageRange="8-11 years old"
           sessionDates="June 15 - August 15, 2024"
           cost="$200"
         />
