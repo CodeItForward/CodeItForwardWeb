@@ -9,7 +9,7 @@ const AIForGood = () => {
       <Header />
       <main className="flex-grow pt-20">
         <h1 className="sr-only">AI For Good Program</h1>
-        <p className="sr-only">Learn to create meaningful projects using AI and modern design tools while developing real-world software development skills.</p>
+        <p className="sr-only">A collaborative experience where students use AI tools to build projects that solve problems or share powerful messages.</p>
         <ClassDetailSection
           title={
             <div className="h-full w-full flex items-center justify-center">
@@ -24,23 +24,23 @@ const AIForGood = () => {
           description={
             <>
               <h2 className="text-3xl font-heading font-bold mb-4">AI For Good</h2>
-              <p className="mb-4">Create something that matters—together.</p>
-              <p className="mb-4">In this collaborative class, students use AI and design tools like Bolt, Midjourney, and ChatGPT to build a group project with a purpose. Whether it's a website, app concept, or business idea, the class will work as a team to design, plan, and present their project.</p>
-              <p>We'll explore real-world skills like whiteboarding, source control, and project management through the lens of the software development life cycle (SDLC). The class ends with a group pitch—just like a startup.</p>
+              <p className="mb-4">Designed for ages 10–13, AI for Good is a collaborative experience where students use tools like ChatGPT, Bolt, and Midjourney to build a group project that solves a problem or shares a powerful message. They'll work together to brainstorm, whiteboard, design, and present their ideas like a real product team.</p>
+              <p className="mb-4">What makes it different:</p>
+              <p className="mb-4">Students are mentored by a Global IT Director with decades of experience leading enterprise tech projects. We blend creative AI exploration with real-world teamwork and software design practices that give students a head start on future careers.</p>
             </>
           }
           learningPoints={[
-            "AI tools and responsible development",
-            "Collaborative project planning",
-            "Design thinking and prototyping",
-            "Software development lifecycle",
-            "Project management fundamentals",
-            "Presentation and pitch skills",
+            "Learn how AI tools can enhance creativity and social impact",
+            "Create team assets using Bolt and Midjourney",
+            "Use ChatGPT for research, planning, and content",
+            "Develop project management and whiteboarding skills",
+            "Understand group roles and agile-style teamwork",
+            "Present a final pitch and reflect on the full SDLC process"
           ]}
           imageUrl="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"
-          ageRange="14-18 years old"
+          ageRange="10-13 years old"
           sessionDates="July 1 - August 30, 2024"
-          cost="$699"
+          cost="$200"
         />
       </main>
       <Footer />

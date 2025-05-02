@@ -40,7 +40,7 @@ const CodeCraftLab = () => {
           imageUrl="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"
           ageRange="14-18 years old"
           sessionDates="July 1 - August 30, 2024"
-          cost="$699"
+          cost="$200"
         />
       </main>
       <Footer />
