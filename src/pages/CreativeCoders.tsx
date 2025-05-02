@@ -9,6 +9,8 @@ const CreativeCoders = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow pt-20">
+        <h1 className="sr-only">Creative Coders Program</h1>
+        <p className="sr-only">Unleash your creativity and learn to code through interactive games, animations, and digital storytelling.</p>
         <ClassDetailSection
           title={
             <div className="h-full w-full flex items-center justify-center">
@@ -20,7 +22,12 @@ const CreativeCoders = () => {
               <span className="sr-only">Creative Coders</span>
             </div>
           }
-          description="Unleash your creativity through code! In this engaging program, students learn fundamental programming concepts while building their own interactive games, animations, and digital stories. Using beginner-friendly tools and languages, participants will develop both technical skills and creative problem-solving abilities."
+          description={
+            <>
+              <h2 className="text-3xl font-heading font-bold mb-4">Creative Coders</h2>
+              <p>Unleash your creativity through code! In this engaging program, students learn fundamental programming concepts while building their own interactive games, animations, and digital stories. Using beginner-friendly tools and languages, participants will develop both technical skills and creative problem-solving abilities.</p>
+            </>
+          }
           learningPoints={[
             "Basic programming concepts using Python and Scratch",
             "Game development fundamentals",

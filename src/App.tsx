@@ -19,18 +19,18 @@ function App() {
       ctaHref: '/creative-coders'
     },
     {
-      title: 'Changemakers Lab',
+      title: 'AI For Good',
+      description: 'Create something that matters—together. Students use AI and design tools to build meaningful group projects while learning real-world software development skills.',
+      icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">AI</div>,
+      ctaText: 'Join the Program',
+      ctaHref: '/ai-for-good'
+    },
+    {
+      title: 'CodeCraft Lab',
       description: 'An immersive program where students work on real-world projects that address community challenges. Develop technical skills while making a positive social impact.',
       icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">CL</div>,
       ctaText: 'Join the Lab',
-      ctaHref: '/changemakers-lab'
-    },
-    {
-      title: 'AI for Good',
-      description: 'Learn about artificial intelligence and how it can be used to solve important problems. Explore machine learning, natural language processing, and responsible AI development.',
-      icon: <div className="w-12 h-12 bg-primary-100 text-primary-500 rounded-lg flex items-center justify-center">AI</div>,
-      ctaText: 'Explore AI',
-      ctaHref: '/ai-for-good'
+      ctaHref: '/codecraft-lab'
     }
   ];
 
@@ -82,22 +82,22 @@ function App() {
           background="light"
         />
 
-        {/* Changemakers Lab Section */}
+        {/* AI For Good Section */}
         <FeatureGridSection
-          id="changemakers-lab"
+          id="ai-for-good"
           title={
             <div className="flex justify-center mb-4">
               <div className="bg-charcoal px-6 py-3 rounded-lg">
                 <img 
                   src={ChangemakersLabSrc} 
-                  alt="Changemakers Lab" 
+                  alt="AI For Good" 
                   className="h-24"
                 />
-                <span className="sr-only">Changemakers Lab</span>
+                <span className="sr-only">AI For Good</span>
               </div>
             </div>
           }
-          subtitle="Inspiring the next generation of tech innovators through hands-on learning"
+          subtitle="Building meaningful projects with AI and modern development practices"
           features={changemakersFeatures}
           background="primary-light"
           columns={3}

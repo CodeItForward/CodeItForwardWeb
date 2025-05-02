@@ -7,7 +7,7 @@ import { Card, CardContent } from '../layout/Card';
 interface ClassDetailProps {
   id?: string;
   title: string | React.ReactNode;
-  description: string;
+  description: string | React.ReactNode;
   learningPoints: string[];
   imageUrl: string;
   ageRange: string;
