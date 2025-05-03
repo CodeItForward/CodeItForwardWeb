@@ -3,6 +3,7 @@ import Section from '../layout/Section';
 import Container from '../layout/Container';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../layout/Card';
+import { sendEmail } from '@/api/email';
 
 interface ClassDetailProps {
   id?: string;
@@ -14,6 +15,10 @@ interface ClassDetailProps {
   sessionDates: string;
   cost: string;
   className?: string;
+  gradeRange?: {
+    start: number;
+    end: number;
+  };
 }
 
 export const ClassDetailSection: React.FC<ClassDetailProps> = ({
@@ -25,13 +30,39 @@ export const ClassDetailSection: React.FC<ClassDetailProps> = ({
   sessionDates,
   cost,
   className,
+  gradeRange = { start: 3, end: 6 }, // Default to 3rd-6th grade
   ...props
 }) => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log('Form submitted');
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    try {
+      const result = await sendEmail({
+        name: formData.get('fullName') as string,
+        email: formData.get('email') as string,
+        message: formData.get('message') as string || '',
+        grade_level: formData.get('gradeLevel') as string,
+      });
+
+      if (result.success) {
+        form.reset();
+        alert('Thanks for registering! We will get back to you soon.');
+      } else {
+        alert('Sorry, there was an error submitting your registration. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Sorry, there was an error submitting your registration. Please try again later.');
+    }
   };
+
+  // Generate grade options based on the gradeRange prop
+  const gradeOptions = Array.from(
+    { length: gradeRange.end - gradeRange.start + 1 },
+    (_, i) => gradeRange.start + i
+  );
 
   return (
     <>
@@ -147,10 +178,11 @@ export const ClassDetailSection: React.FC<ClassDetailProps> = ({
                         className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-300 transition"
                       >
                         <option value="">Select Grade Level</option>
-                        <option value="3">3rd Grade</option>
-                        <option value="4">4th Grade</option>
-                        <option value="5">5th Grade</option>
-                        <option value="6">6th Grade</option>
+                        {gradeOptions.map((grade) => (
+                          <option key={grade} value={grade}>
+                            {grade}th Grade
+                          </option>
+                        ))}
                       </select>
                     </div>
 

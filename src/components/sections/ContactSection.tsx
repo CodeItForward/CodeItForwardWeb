@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Section from '../layout/Section';
 import { Button } from '../ui/button';
+import { sendEmail } from '@/api/email';
 
 interface ContactSectionProps {
   id?: string;
@@ -30,16 +31,27 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log('Form submitted:', formData);
     
-    // Reset form after submission
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Show success message (in a real app, this would be a toast or other UI feedback)
-    alert('Thanks for your message! We will get back to you soon.');
+    try {
+      const result = await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
+
+      if (result.success) {
+        // Reset form after successful submission
+        setFormData({ name: '', email: '', message: '' });
+        alert('Thanks for your message! We will get back to you soon.');
+      } else {
+        alert('Sorry, there was an error sending your message. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Sorry, there was an error sending your message. Please try again later.');
+    }
   };
 
   return (
